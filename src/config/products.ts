@@ -82,6 +82,26 @@ export const products: Product[] = [
     priceLabel: "¥150",
   },
   {
+    slug: "crmtaskchecker",
+    name: "CRMタスクチェッカー",
+    subtitle: "Customer Follow-up Task Manager for iOS",
+    category: "store_app",
+    lifecycle: "final_tuning",
+    shortDescription:
+      "進行中の案件が必ず「次回対応」を1つ持つように強制する、顧客フォロー管理のiOSアプリ。",
+    description:
+      "CRMタスクチェッカーは、顧客への対応漏れを構造的に防ぐiOSアプリです。対応を完了するときに「次を予定する／待機にする／クローズする」のいずれかを必ず選ばせるため、次にやることが決まっていない案件が生まれません。個人事業主・フリーランス・小規模企業のほか、就職活動や暮らしの用事にも使えます。",
+    href: "/products/crmtaskchecker",
+    ctaLabel: "概要を見る",
+    ctaHref: "/products/crmtaskchecker",
+    showOnHome: true,
+    showOnProducts: true,
+    priority: 3,
+    isNew: true,
+    aliases: ["CRMタスクチェッカー", "CRMTaskChecker", "タスクチェッカー", "顧客フォロー", "対応漏れ"],
+    priceLabel: "顧客10件まで無料 / Proプラン（自動更新サブスクリプション）",
+  },
+  {
     slug: "neutrongate",
     name: "NeutronGate",
     subtitle: "Local AI Knowledge Runtime",
