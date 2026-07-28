@@ -7,6 +7,7 @@ const currentProducts = products
   .sort((a, b) => a.priority - b.priority);
 
 const storeApps = currentProducts.filter((product) => product.category === "store_app");
+const iosApps = currentProducts.filter((product) => product.category === "ios_app");
 const flagship = currentProducts.filter((product) => product.category === "flagship");
 const business = currentProducts.filter((product) => product.category === "business" || product.category === "ops");
 const medical = currentProducts.filter((product) => product.category === "medical_welfare");
@@ -40,7 +41,7 @@ export default function ProductsPage() {
       <section className="mb-12 border-l-4 border-sky-500 pl-4 md:mb-16 md:pl-6">
         <h1 className="text-3xl font-bold tracking-tight text-slate-950 md:text-5xl">Products</h1>
         <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-700 md:text-lg">
-          NEXSPACEが開発・提供しているプロダクト。Microsoft Store配信中のWindowsアプリと、提供準備中のAI/業務支援プロダクトを掲載しています。
+          NEXSPACEが開発・提供しているプロダクト。Microsoft Store配信中のWindowsアプリ、App Store向けのiPhone / iPadアプリ、提供準備中のAI/業務支援プロダクトを掲載しています。
         </p>
       </section>
 
@@ -49,6 +50,15 @@ export default function ProductsPage() {
           <h2 className="text-xl font-bold text-slate-950">NEW / Microsoft Store Apps</h2>
           <div className="mt-5 grid gap-5 md:grid-cols-2">
             {storeApps.map((product) => (
+              <ProductCard key={product.slug} product={product} />
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2 className="text-xl font-bold text-slate-950">NEW / iOS Apps</h2>
+          <div className="mt-5 grid gap-5 md:grid-cols-2">
+            {iosApps.map((product) => (
               <ProductCard key={product.slug} product={product} />
             ))}
           </div>
