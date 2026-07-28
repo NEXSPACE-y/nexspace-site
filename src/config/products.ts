@@ -10,6 +10,10 @@ export type ProductLifecycle =
 
 export type ProductCategory =
   | "store_app"
+  // App Store で配布する iOS アプリ。store_app (Microsoft Store の Windows
+  // アプリ) と混ぜると、入手先も対応プラットフォームも違うものが同じ棚に
+  // 並んでしまう。審査でサポートURLを辿られたときにも紛らわしい。
+  | "ios_app"
   | "flagship"
   | "business"
   | "medical_welfare"
@@ -61,6 +65,26 @@ export const products: Product[] = [
     priceLabel: "無料ダウンロード / アドオン・サブスクリプション対応",
   },
   {
+    slug: "jibunsite-ios",
+    name: "じぶんサイト / JibunSite（iOS）",
+    subtitle: "Local Page Builder for iPhone / iPad",
+    category: "ios_app",
+    lifecycle: "final_tuning",
+    shortDescription:
+      "Windows版と同じ作り方を、iPhoneとiPadで。AIでたたき台を作り、指で並べ替えて、HTML一式やZIPとして書き出せます。",
+    description:
+      "じぶんサイト / JibunSite（iOS）は、Windows版と同じプロジェクト形式・同じブロック構成をiPhoneとiPadで扱えるようにしたものです。AIでたたき台を作り、パーツを並べ替え、写真と色を整えて、HTML一式またはZIPとして書き出せます。書き出したファイルは共有シートから「ファイル」やAirDrop、メールなど好きな出口へ渡せます。作成した内容は端末内にのみ保存され、クラウドへの自動保存やログインは行いません。",
+    href: "/products/jibunsite-ios",
+    ctaLabel: "概要を見る",
+    ctaHref: "/products/jibunsite-ios",
+    showOnHome: true,
+    showOnProducts: true,
+    priority: 2,
+    isNew: true,
+    aliases: ["JibunSite iOS", "じぶんサイト iOS", "じぶんサイト iPhone", "じぶんサイト iPad"],
+    priceLabel: "無料 / サブスクリプション対応",
+  },
+  {
     slug: "denki-scope",
     name: "Denki Scope",
     subtitle: "PC Power Cost Monitor",
@@ -85,7 +109,7 @@ export const products: Product[] = [
     slug: "crmtaskchecker",
     name: "CRMタスクチェッカー",
     subtitle: "Customer Follow-up Task Manager for iOS",
-    category: "store_app",
+    category: "ios_app",
     lifecycle: "final_tuning",
     shortDescription:
       "進行中の案件が必ず「次回対応」を1つ持つように強制する、顧客フォロー管理のiOSアプリ。",

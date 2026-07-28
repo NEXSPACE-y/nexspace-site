@@ -54,6 +54,9 @@ export default function JibunSitePage() {
           >
             Microsoft Storeで入手
           </a>
+          <Link href="/products/jibunsite-ios" className="rounded-full border border-slate-300 px-6 py-3 text-center text-sm font-bold text-slate-900 transition-colors hover:border-sky-500 hover:text-sky-700">
+            iPhone / iPad版
+          </Link>
           <Link href="/products" className="rounded-full border border-slate-300 px-6 py-3 text-center text-sm font-bold text-slate-900 transition-colors hover:border-sky-500 hover:text-sky-700">
             製品一覧
           </Link>

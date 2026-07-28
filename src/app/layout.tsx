@@ -25,8 +25,13 @@ export default function RootLayout({
           <header className="border-b border-slate-200 bg-white/95 backdrop-blur">
             <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
               <Link href="/" className="flex items-center gap-2" aria-label="NEXSPACE トップ">
-                <div className="relative h-12 w-52 md:h-16 md:w-72">
-                  <Image src="/img/nexspace-logo.png" alt={siteConfig.brandName} fill className="object-contain" priority />
+                {/*
+                  箱の縦横比はロゴの 7.6:1 に合わせる。以前は正方形の画像を
+                  横長の箱へ object-contain で入れていたため、高さに合わせて
+                  縮んだ小さな四角になり、幅はほぼ余白だった。
+                */}
+                <div className="relative h-8 w-[244px] md:h-10 md:w-[304px]">
+                  <Image src="/img/nexspace-logo-dark.png" alt={siteConfig.brandName} fill className="object-contain" priority />
                 </div>
               </Link>
               <div className="flex items-center gap-4">
