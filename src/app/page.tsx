@@ -8,13 +8,13 @@ const homeProducts = products
   .filter((product) => product.showOnHome)
   .sort((a, b) => a.priority - b.priority);
 
+const newReleaseProducts = homeProducts.filter((product) => product.category === "new_release");
 const storeProducts = homeProducts.filter((product) => product.category === "store_app");
 const iosProducts = homeProducts.filter((product) => product.category === "ios_app");
-const featuredProduct = homeProducts.find((product) => product.category === "flagship") ?? homeProducts[0];
 const businessProducts = homeProducts.filter((product) => (
-  product.category !== "store_app"
+  product.category !== "new_release"
+  && product.category !== "store_app"
   && product.category !== "ios_app"
-  && product.slug !== featuredProduct.slug
 ));
 
 export default function HomePage() {
@@ -48,8 +48,47 @@ export default function HomePage() {
 
       <section className="border-y border-slate-200 bg-white py-12 md:py-16">
         <div className="border-l-4 border-sky-500 pl-4">
-          <p className="text-xs font-bold uppercase tracking-wider text-sky-700">New Products</p>
-          <h2 className="mt-2 text-2xl font-bold text-slate-950">Microsoft Store Apps</h2>
+          <h2 className="text-2xl font-bold text-slate-950">New Products</h2>
+          <p className="mt-1 text-sm text-slate-600">最新プロモーション映像・公開プロダクト</p>
+        </div>
+
+        <div className="mt-8 overflow-hidden rounded-lg border border-slate-200 bg-slate-950">
+          <video
+            src="/videos/Brain_Promo_90s_Relaxed_v3_fixed.mp4"
+            poster="/videos/promo-poster.jpg"
+            controls
+            playsInline
+            preload="metadata"
+            className="aspect-video w-full bg-slate-950"
+          >
+            お使いのブラウザは動画再生に対応していません。
+          </video>
+        </div>
+
+        <div className="mt-8 grid gap-5 md:grid-cols-2">
+          {newReleaseProducts.map((product) => (
+            <Link
+              key={product.slug}
+              href={product.href}
+              className="block rounded-lg border border-sky-200 bg-sky-50/70 p-6 transition-colors hover:border-sky-500"
+            >
+              {product.priceLabel ? (
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-xs font-bold text-sky-700">{product.priceLabel}</span>
+                </div>
+              ) : null}
+              <h3 className="mt-3 text-2xl font-bold text-slate-950">{product.name}</h3>
+              <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-slate-500">{product.subtitle}</p>
+              <p className="mt-4 text-sm leading-relaxed text-slate-700">{product.shortDescription}</p>
+              <span className="mt-6 inline-flex text-sm font-bold text-sky-700">{product.ctaLabel}</span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="border-y border-slate-200 bg-white py-12 md:py-16">
+        <div className="border-l-4 border-sky-500 pl-4">
+          <h2 className="text-2xl font-bold text-slate-950">Microsoft Store Apps</h2>
           <p className="mt-1 text-sm text-slate-600">すぐに入手・購入できるWindowsアプリ</p>
         </div>
         <div className="mt-8 grid gap-5 md:grid-cols-2">
@@ -60,10 +99,9 @@ export default function HomePage() {
               className="block rounded-lg border border-sky-200 bg-sky-50 p-6 transition-colors hover:border-sky-500"
             >
               <div className="flex flex-wrap items-center gap-2">
-                <span className="rounded-full bg-sky-600 px-3 py-1 text-xs font-bold text-white">NEW</span>
                 <span className="text-xs font-bold text-sky-700">{product.priceLabel}</span>
               </div>
-              <h3 className="mt-4 text-2xl font-bold text-slate-950">{product.name}</h3>
+              <h3 className="mt-3 text-2xl font-bold text-slate-950">{product.name}</h3>
               <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-slate-500">{product.subtitle}</p>
               <p className="mt-4 text-sm leading-relaxed text-slate-700">{product.shortDescription}</p>
               <span className="mt-6 inline-flex text-sm font-bold text-sky-700">{product.ctaLabel}</span>
@@ -74,8 +112,7 @@ export default function HomePage() {
 
       <section className="border-y border-slate-200 bg-white py-12 md:py-16">
         <div className="border-l-4 border-slate-800 pl-4">
-          <p className="text-xs font-bold uppercase tracking-wider text-slate-600">New Products</p>
-          <h2 className="mt-2 text-2xl font-bold text-slate-950">iOS Apps</h2>
+          <h2 className="text-2xl font-bold text-slate-950">iOS Apps</h2>
           <p className="mt-1 text-sm text-slate-600">App Storeで入手できるiPhone / iPadアプリ</p>
         </div>
         <div className="mt-8 grid gap-5 md:grid-cols-2">
@@ -86,10 +123,9 @@ export default function HomePage() {
               className="block rounded-lg border border-slate-300 bg-slate-50 p-6 transition-colors hover:border-slate-800"
             >
               <div className="flex flex-wrap items-center gap-2">
-                <span className="rounded-full bg-slate-800 px-3 py-1 text-xs font-bold text-white">NEW</span>
                 <span className="text-xs font-bold text-slate-700">{product.priceLabel}</span>
               </div>
-              <h3 className="mt-4 text-2xl font-bold text-slate-950">{product.name}</h3>
+              <h3 className="mt-3 text-2xl font-bold text-slate-950">{product.name}</h3>
               <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-slate-500">{product.subtitle}</p>
               <p className="mt-4 text-sm leading-relaxed text-slate-700">{product.shortDescription}</p>
               <span className="mt-6 inline-flex text-sm font-bold text-slate-800">{product.ctaLabel}</span>
@@ -99,47 +135,23 @@ export default function HomePage() {
       </section>
 
       <section className="border-y border-slate-200 bg-white py-12 md:py-16">
-        <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
-          <article className="rounded-lg border border-sky-200 bg-sky-50 p-6 md:p-8">
-            <p className="text-xs font-bold uppercase tracking-wider text-sky-700">Featured Product</p>
-            <h2 className="mt-3 text-3xl font-bold text-slate-950">{featuredProduct.name}</h2>
-            <p className="mt-1 text-sm font-semibold text-slate-500">{featuredProduct.subtitle}</p>
-            <p className="mt-5 max-w-2xl text-sm leading-relaxed text-slate-700 md:text-base">
-              {featuredProduct.shortDescription}
-            </p>
-            <div className="mt-6 grid gap-3 text-sm text-slate-700 md:grid-cols-3">
-              {["知識パック", "GPU不要思想", "外部送信を抑える設計思想"].map((item) => (
-                <div key={item} className="rounded-lg border border-sky-100 bg-white px-4 py-3 font-semibold">
-                  {item}
-                </div>
-              ))}
-            </div>
+        <div className="border-l-4 border-sky-500 pl-4">
+          <h2 className="text-2xl font-bold text-slate-950">Business Products</h2>
+          <p className="mt-1 text-sm text-slate-600">業務運用・施設支援向けプロダクト</p>
+        </div>
+        <div className="mt-8 grid gap-5 md:grid-cols-3">
+          {businessProducts.map((product) => (
             <Link
-              href={featuredProduct.href}
-              className="mt-6 inline-flex rounded-full bg-sky-600 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-sky-700"
+              key={product.slug}
+              href={product.href}
+              className="block rounded-lg border border-slate-200 bg-white p-6 transition-colors hover:border-sky-400"
             >
-              詳細を見る
+              <h3 className="text-xl font-bold text-slate-950">{product.name}</h3>
+              <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-slate-500">{product.subtitle}</p>
+              <p className="mt-3 text-sm leading-relaxed text-slate-600">{product.shortDescription}</p>
+              <span className="mt-5 inline-flex text-sm font-bold text-sky-700">{product.ctaLabel}</span>
             </Link>
-          </article>
-
-          <section>
-            <div className="border-l-4 border-sky-500 pl-4">
-              <h2 className="text-2xl font-bold text-slate-950">Business Products</h2>
-              <p className="mt-1 text-sm text-slate-600">業務運用・施設支援向けプロダクト</p>
-            </div>
-            <div className="mt-6 space-y-4">
-              {businessProducts.map((product) => (
-                <Link
-                  key={product.slug}
-                  href={product.href}
-                  className="block rounded-lg border border-slate-200 bg-white p-5 transition-colors hover:border-sky-400"
-                >
-                  <h3 className="font-bold text-slate-950">{product.name}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{product.shortDescription}</p>
-                </Link>
-              ))}
-            </div>
-          </section>
+          ))}
         </div>
       </section>
 

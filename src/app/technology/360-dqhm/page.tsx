@@ -4,7 +4,7 @@ import { technologies } from "@/config/technology";
 const technology = technologies.find((item) => item.slug === "360-dqhm");
 
 const points = [
-  "NeutronGate基盤思想として掲載",
+  "ローカル知識ランタイムの研究基盤思想として掲載",
   "知識を多面的に整理するための研究概念",
   "製品ページではなく技術ページに限定して説明",
 ];

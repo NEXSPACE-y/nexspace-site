@@ -2,14 +2,14 @@ import Link from "next/link";
 
 const faqs = [
   {
-    category: "NeutronGate",
-    q: "NeutronGateは何をする製品ですか？",
-    a: "ローカル環境で知識パックを扱うAI基盤です。詳細はNeutronGateページをご確認ください。",
+    category: "自律型サイバーAI防御システム",
+    q: "自律型サイバーAI防御システムは外部クラウドやLLMへデータを送信しますか？",
+    a: "送信しません。処理AI（Isolation Forest）と判定AI（Jev型MLP）による2段判定、深層フォレンジック、自律隔離、SHA-256監査証跡まで完全ローカル完結で動作します。",
   },
   {
-    category: "NeutronGate",
-    q: "NeutronGateはクラウドAIと何が違いますか？",
-    a: "クラウドにすべてを送る前提ではなく、PC内の知識パックやローカル運用を重視する点が違います。",
+    category: "AIMS v0.2（aims-engine）",
+    q: "AIMS v0.2はオフライン環境や長期運用でもクラウドAPIなしで動作しますか？",
+    a: "はい。外部クレート依存ゼロのPure Rust単一バイナリで構成され、外部LLMや外部APIを一切使用せず、4段階エスカレーション推論・IndependentJudge審査・360-DQHM自己再生で自律保守を行います。",
   },
   {
     category: "NGND",
@@ -28,8 +28,8 @@ const faqs = [
   },
   {
     category: "Archive",
-    q: "AIEC / Axis / Primusは購入できますか？",
-    a: "いいえ。AIEC、Axis、Primusはサービス終了済みです。現在、新規購入・予約受付は行っていません。",
+    q: "AIEC / Axis / Primus / NeutronGateは購入・導入できますか？",
+    a: "いいえ。AIEC、Axis、Primus、NeutronGateはサービス終了済みです。現在、新規購入・予約・先行相談の受付は行っていません。",
   },
 ];
 

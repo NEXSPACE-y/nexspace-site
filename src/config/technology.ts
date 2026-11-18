@@ -30,11 +30,11 @@ export const technologies: Technology[] = [
     subtitle: "360-Dimensional Quantum-Grade Hybrid Memory",
     status: "研究概念",
     shortDescription:
-      "NeutronGateの基盤思想として扱う、多面的な知識保持と参照の研究概念。",
+      "ローカル環境での多面的な知識保持と参照を支える研究概念。",
     description:
       "360-DQHMは、ローカル知識を多面的に整理し、用途に応じて参照するための研究概念です。",
     href: "/technology/360-dqhm",
-    relatedProduct: "NeutronGate",
+    relatedProduct: "AIMS v0.2（aims-engine）",
     priority: 2,
   },
   {
@@ -45,9 +45,8 @@ export const technologies: Technology[] = [
     shortDescription:
       "製品ではなく、知識パック生成を支える内部基盤として掲載します。",
     description:
-      "PackBuilderは、NeutronGateで扱う知識パックを成形するための内部基盤です。販売対象の単体製品ではありません。",
+      "PackBuilderは、構造化された知識パックを成形するための内部基盤です。販売対象の単体製品ではありません。",
     href: "/technology/packbuilder",
-    relatedProduct: "NeutronGate",
     priority: 3,
   },
 ];

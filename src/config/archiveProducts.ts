@@ -42,4 +42,15 @@ export const archiveProducts: ArchiveProduct[] = [
       "個人に寄り添うローカル志向AIアシスタント構想のプロダクトでした。",
     href: "/archive/primus",
   },
+  {
+    slug: "neutrongate",
+    name: "NeutronGate",
+    subtitle: "Local AI Knowledge Runtime",
+    endedStatusLabel: "サービス終了済み",
+    endedDescription:
+      "NeutronGateは現在、提供・販売・先行相談受付を終了しています。",
+    formerDescription:
+      "事前成形済み知識パックをローカル環境で読み込み、クラウド依存を抑えて扱うAI実行基盤構想のプロダクトでした。",
+    href: "/archive/neutrongate",
+  },
 ];

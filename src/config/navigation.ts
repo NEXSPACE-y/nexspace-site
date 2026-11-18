@@ -10,7 +10,11 @@ export const footerSections = [
   {
     title: "Products",
     links: [
-      { href: "/products/neutrongate", label: "NeutronGate" },
+      { href: "/products/cyber-ai-defense", label: "自律型サイバーAI防御システム" },
+      { href: "/products/aims-engine", label: "AIMS v0.2（aims-engine）" },
+      { href: "/products/jibunsite", label: "じぶんサイト" },
+      { href: "/products/denki-scope", label: "Denki Scope" },
+      { href: "/products/crmtaskchecker", label: "CRMタスクチェッカー" },
       { href: "/products/ngnd", label: "NGND" },
       { href: "/products/carelingual", label: "CareLingual" },
       { href: "/products/ndsm", label: "NDSM" },
@@ -30,6 +34,7 @@ export const footerSections = [
       { href: "/archive/aiec", label: "AIEC" },
       { href: "/archive/axis", label: "Axis" },
       { href: "/archive/primus", label: "Primus" },
+      { href: "/archive/neutrongate", label: "NeutronGate" },
     ],
   },
   {
