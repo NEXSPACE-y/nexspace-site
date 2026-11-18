@@ -54,7 +54,7 @@ export default function HomePage() {
         </div>
 
         <PromoVideoPlayer
-          src="/videos/Brain_Promo_90s_Relaxed_v3_fixed.mp4"
+          src="/videos/Brain_Promo_Final_Candidate_v7.mp4"
           poster="/videos/promo-poster.jpg"
         />
 
