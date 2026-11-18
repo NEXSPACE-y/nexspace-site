@@ -1,4 +1,5 @@
 export type ProductLifecycle =
+  | "public_showcase"
   | "store_available"
   | "flagship_preparing"
   | "final_tuning"
@@ -9,6 +10,7 @@ export type ProductLifecycle =
   | "hidden";
 
 export type ProductCategory =
+  | "new_release"
   | "store_app"
   // App Store で配布する iOS アプリ。store_app (Microsoft Store の Windows
   // アプリ) と混ぜると、入手先も対応プラットフォームも違うものが同じ棚に
@@ -44,6 +46,46 @@ export type Product = {
 
 export const products: Product[] = [
   {
+    slug: "cyber-ai-defense",
+    name: "自律型サイバーAI防御システム",
+    subtitle: "Autonomous Cyber AI Defense System",
+    category: "new_release",
+    lifecycle: "public_showcase",
+    shortDescription:
+      "外部LLMやクラウドAPIに依存せず、完全ローカル完結でOS監視・脅威検知・2段AI判定・自律隔離・SHA-256監査記録・脆弱性診断を実行する次世代サイバー防御デスクトップシステム。",
+    description:
+      "自律型サイバーAI防御システムは、Rustネイティブバックエンドとローカル非言語AI（処理AI: Isolation Forest × 判定AI: Jev型MLP＋キルチェーン相関）により、クラウド非依存でリアルタイムOS監視・深層バイナリフォレンジック・自律隔離・改ざん検知付き監査証跡を実現するデスクトップ防御基盤です。",
+    href: "/products/cyber-ai-defense",
+    ctaLabel: "詳細・検証情報を見る",
+    ctaHref: "/products/cyber-ai-defense",
+    showOnHome: true,
+    showOnProducts: true,
+    priority: -1,
+    aliases: ["自律型サイバーAI防御システム", "サイバーAI防御", "-AI-Public", "Autonomous Cyber AI Defense"],
+    storeUrl: "https://github.com/NEXSPACE-y/-AI-Public",
+    priceLabel: "Public Showcase 公開中 / 法人導入・OEM相談対応",
+  },
+  {
+    slug: "aims-engine",
+    name: "AIMS v0.2（aims-engine）",
+    subtitle: "Autonomous Self-Healing & Maintenance Engine",
+    category: "new_release",
+    lifecycle: "public_showcase",
+    shortDescription:
+      "外部LLM・外部クレート依存ゼロのPure Rust単一バイナリ（約550KB）で、Webアプリと基幹SQLite DBを4段階エスカレーション推論・三権分立審査・360-DQHM自己再生で自律維持する保守エンジン。",
+    description:
+      "AIMS v0.2（aims-engine）は、専任開発者の不在後・長期放置環境・閉域網においてもミッションクリティカルなWebアプリケーションと基幹SQLiteデータベースを自律維持するために設計された、Pure Rust（stdのみ・外部クレート依存ゼロ・外部API非依存）の単一バイナリ型自律メンテナンス＆自己再生エンジンです。",
+    href: "/products/aims-engine",
+    ctaLabel: "詳細・仕様書情報を見る",
+    ctaHref: "/products/aims-engine",
+    showOnHome: true,
+    showOnProducts: true,
+    priority: 0,
+    aliases: ["AIMS", "AIMS v0.2", "aims-engine", "congenial-engine", "完全自律メンテナンス", "自己再生エンジン"],
+    storeUrl: "https://github.com/NEXSPACE-y/congenial-engine",
+    priceLabel: "Public Showcase 公開中 / 法人導入・OEM相談対応",
+  },
+  {
     slug: "jibunsite",
     name: "じぶんサイト / JibunSite",
     subtitle: "Local Page Builder for Windows",
@@ -59,7 +101,6 @@ export const products: Product[] = [
     showOnHome: true,
     showOnProducts: true,
     priority: 1,
-    isNew: true,
     aliases: ["JibunSite", "じぶんサイト", "local-page-builder", "ページビルダー"],
     storeUrl: "https://apps.microsoft.com/detail/9MX9ZKTXSV7T?hl=ja-jp&gl=JP&ocid=pdpshare",
     priceLabel: "無料ダウンロード / アドオン・サブスクリプション対応",
@@ -80,7 +121,6 @@ export const products: Product[] = [
     showOnHome: true,
     showOnProducts: true,
     priority: 2,
-    isNew: true,
     aliases: ["JibunSite iOS", "じぶんサイト iOS", "じぶんサイト iPhone", "じぶんサイト iPad"],
     priceLabel: "無料 / サブスクリプション対応",
   },
@@ -100,7 +140,6 @@ export const products: Product[] = [
     showOnHome: true,
     showOnProducts: true,
     priority: 2,
-    isNew: true,
     aliases: ["DenkiScope", "Denki Scope", "デンスコ", "電気スコープ"],
     storeUrl: "https://apps.microsoft.com/detail/9MXM7BKVT9M6?hl=ja-jp&gl=JP&ocid=pdpshare",
     priceLabel: "¥150",
@@ -121,26 +160,8 @@ export const products: Product[] = [
     showOnHome: true,
     showOnProducts: true,
     priority: 3,
-    isNew: true,
     aliases: ["CRMタスクチェッカー", "CRMTaskChecker", "タスクチェッカー", "顧客フォロー", "対応漏れ"],
     priceLabel: "顧客10件まで無料 / Proプラン（自動更新サブスクリプション）",
-  },
-  {
-    slug: "neutrongate",
-    name: "NeutronGate",
-    subtitle: "Local AI Knowledge Runtime",
-    category: "flagship",
-    lifecycle: "flagship_preparing",
-    shortDescription:
-      "知識パックをローカル環境で読み込み、クラウド依存を抑えて使うAI基盤。",
-    description:
-      "NeutronGateは、事前成形済み知識パックをPC内で扱うローカル志向のAI実行基盤です。",
-    href: "/products/neutrongate",
-    ctaLabel: "詳細を見る",
-    ctaHref: "/products/neutrongate",
-    showOnHome: true,
-    showOnProducts: true,
-    priority: 10,
   },
   {
     slug: "ngnd",
@@ -196,7 +217,8 @@ export const products: Product[] = [
 ];
 
 export const lifecycleLabels: Record<ProductLifecycle, string> = {
-  store_available: "NEW / Microsoft Storeで購入可能",
+  public_showcase: "Public Showcase / 評価版バイナリ公開中",
+  store_available: "Microsoft Storeで購入可能",
   flagship_preparing: "提供準備・商品化設計中",
   final_tuning: "販売用最終チューニング中",
   development: "開発・試作中",

@@ -2,7 +2,8 @@ import Link from "next/link";
 import { products } from "@/config/products";
 
 const consultationCards = [
-  { title: "NeutronGate 先行相談", href: "/consultation?product=neutrongate" },
+  { title: "自律型サイバーAI防御システム 導入・OEM相談", href: "/consultation?product=cyber-ai-defense" },
+  { title: "AIMS v0.2（aims-engine） 導入・OEM相談", href: "/consultation?product=aims-engine" },
   { title: "NGND 法人導入相談", href: "/consultation?product=ngnd" },
   { title: "CareLingual 施設導入相談", href: "/consultation?product=carelingual" },
   { title: "NDSM 技術相談", href: "/consultation?product=ndsm" },
@@ -22,7 +23,7 @@ export default function ConsultationPage() {
         </p>
       </section>
 
-      <section className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      <section className="grid gap-5 md:grid-cols-2">
         {consultationCards.map((card) => (
           <Link
             key={card.title}
@@ -54,7 +55,7 @@ export default function ConsultationPage() {
         <ul className="mt-4 space-y-3 text-sm leading-relaxed text-slate-600">
           <li>製品により提供時期・条件が異なります。</li>
           <li>未確定価格は表示しません。</li>
-          <li>AIEC / Axis / Primus はサービス終了済みのため、購入・予約は受け付けていません。</li>
+          <li>AIEC / Axis / Primus / NeutronGate はサービス終了済みのため、購入・予約・先行相談は受け付けていません。</li>
         </ul>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           <Link href="/contact" className="rounded-full bg-sky-600 px-6 py-3 text-center text-sm font-bold text-white transition-colors hover:bg-sky-700">

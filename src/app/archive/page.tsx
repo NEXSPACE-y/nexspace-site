@@ -11,7 +11,7 @@ export default function ArchivePage() {
         </p>
       </section>
 
-      <section className="grid gap-5 md:grid-cols-3">
+      <section className="grid gap-5 md:grid-cols-2">
         {archiveProducts.map((product) => (
           <Link
             key={product.slug}

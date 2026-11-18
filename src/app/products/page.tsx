@@ -6,6 +6,7 @@ const currentProducts = products
   .filter((product) => product.showOnProducts)
   .sort((a, b) => a.priority - b.priority);
 
+const newReleases = currentProducts.filter((product) => product.category === "new_release");
 const storeApps = currentProducts.filter((product) => product.category === "store_app");
 const iosApps = currentProducts.filter((product) => product.category === "ios_app");
 const flagship = currentProducts.filter((product) => product.category === "flagship");
@@ -19,9 +20,6 @@ function ProductCard({ product }: { product: (typeof products)[number] }) {
       className="flex h-full flex-col rounded-lg border border-slate-200 bg-white p-6 transition-colors hover:border-sky-400"
     >
       <div className="flex flex-wrap items-center gap-2">
-        {product.isNew ? (
-          <span className="rounded-full bg-sky-600 px-3 py-1 text-xs font-bold text-white">NEW</span>
-        ) : null}
         <p className="text-xs font-bold text-sky-700">{lifecycleLabels[product.lifecycle]}</p>
       </div>
       <h3 className="mt-2 text-2xl font-bold text-slate-950">{product.name}</h3>
@@ -41,13 +39,24 @@ export default function ProductsPage() {
       <section className="mb-12 border-l-4 border-sky-500 pl-4 md:mb-16 md:pl-6">
         <h1 className="text-3xl font-bold tracking-tight text-slate-950 md:text-5xl">Products</h1>
         <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-700 md:text-lg">
-          NEXSPACEが開発・提供しているプロダクト。Microsoft Store配信中のWindowsアプリ、App Store向けのiPhone / iPadアプリ、提供準備中のAI/業務支援プロダクトを掲載しています。
+          NEXSPACEが開発・提供しているプロダクト。ローカル完結の自律AI基盤・セキュリティシステム、Microsoft Store配信中のWindowsアプリ、App Store向けのiPhone / iPadアプリ、業務支援プロダクトを掲載しています。
         </p>
       </section>
 
       <section className="space-y-12">
+        {newReleases.length > 0 ? (
+          <div>
+            <h2 className="text-xl font-bold text-slate-950">New Products</h2>
+            <div className="mt-5 grid gap-5 md:grid-cols-2">
+              {newReleases.map((product) => (
+                <ProductCard key={product.slug} product={product} />
+              ))}
+            </div>
+          </div>
+        ) : null}
+
         <div>
-          <h2 className="text-xl font-bold text-slate-950">NEW / Microsoft Store Apps</h2>
+          <h2 className="text-xl font-bold text-slate-950">Microsoft Store Apps</h2>
           <div className="mt-5 grid gap-5 md:grid-cols-2">
             {storeApps.map((product) => (
               <ProductCard key={product.slug} product={product} />
@@ -56,7 +65,7 @@ export default function ProductsPage() {
         </div>
 
         <div>
-          <h2 className="text-xl font-bold text-slate-950">NEW / iOS Apps</h2>
+          <h2 className="text-xl font-bold text-slate-950">iOS Apps</h2>
           <div className="mt-5 grid gap-5 md:grid-cols-2">
             {iosApps.map((product) => (
               <ProductCard key={product.slug} product={product} />
@@ -64,14 +73,16 @@ export default function ProductsPage() {
           </div>
         </div>
 
-        <div>
-          <h2 className="text-xl font-bold text-slate-950">Flagship</h2>
-          <div className="mt-5 grid gap-5">
-            {flagship.map((product) => (
-              <ProductCard key={product.slug} product={product} />
-            ))}
+        {flagship.length > 0 ? (
+          <div>
+            <h2 className="text-xl font-bold text-slate-950">Flagship</h2>
+            <div className="mt-5 grid gap-5">
+              {flagship.map((product) => (
+                <ProductCard key={product.slug} product={product} />
+              ))}
+            </div>
           </div>
-        </div>
+        ) : null}
 
         <div>
           <h2 className="text-xl font-bold text-slate-950">Business / Operations</h2>

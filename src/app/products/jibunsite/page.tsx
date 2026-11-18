@@ -35,7 +35,6 @@ export default function JibunSitePage() {
     <div className="w-full py-12 md:py-20">
       <section className="mb-14 border-l-4 border-sky-500 pl-4 md:pl-6">
         <div className="flex flex-wrap items-center gap-2">
-          <span className="rounded-full bg-sky-600 px-3 py-1 text-xs font-bold text-white">NEW</span>
           <p className="text-sm font-bold text-sky-700">{lifecycleLabels[product.lifecycle]}</p>
         </div>
         <h1 className="mt-3 text-4xl font-bold tracking-tight text-slate-950 md:text-6xl">{product.name}</h1>
